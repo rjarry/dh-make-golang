@@ -147,7 +147,7 @@ func (u *upstream) tarballFromHoster() error {
 	}
 
 	switch repoU.Host {
-	case "github.com":
+	case "github.com", "git.sr.ht":
 		tarURL = fmt.Sprintf("%s/archive/%s.tar.%s",
 			repo, u.tag, u.compression)
 	case "gitlab.com", "salsa.debian.org":
