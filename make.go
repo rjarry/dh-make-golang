@@ -506,8 +506,9 @@ func createGitRepository(debsrc, gopkg, orig string, u *upstream,
 	}
 	if includeUpstreamHistory {
 		arg = append(arg, "--upstream-vcs-tag="+u.commitIsh)
+	} else {
+		arg = append(arg, filepath.Join(wd, orig))
 	}
-	arg = append(arg, filepath.Join(wd, orig))
 	cmd := exec.Command("gbp", arg...)
 	cmd.Dir = dir
 	cmd.Stderr = os.Stderr
